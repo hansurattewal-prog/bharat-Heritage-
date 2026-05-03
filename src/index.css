@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-body: "Outfit", sans-serif;
+
+  --color-heritage-bg: #FDFBF7;
+  --color-heritage-teal: #005F6B;
+  --color-heritage-saffron: #FF9933;
+  --color-heritage-gold: #D4AF37;
+  --color-heritage-black: #1A1A1A;
+  --color-heritage-white: #FFFFFF;
+
+  --animate-spin-slow: spin 8s linear infinite;
+  
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-heritage: 0 10px 30px -5px rgba(0, 95, 107, 0.1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-heritage-bg text-heritage-black font-body antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-heritage-teal;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+}
+
+.mughal-pattern {
+  background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M30 30l15-15-15-15-15 15 15 15zm0-20l10 10-10 10-10-10 10-10z" fill="%23005F6B" fill-rule="evenodd"/%3E%3C/svg%3E');
+}
+
+.corner-border-tl {
+  @apply absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-heritage-gold pointer-events-none z-10;
+}
+
+.corner-border-br {
+  @apply absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-heritage-gold pointer-events-none z-10;
+}
+
+.glass-nav {
+  @apply bg-white/80 backdrop-blur-sm border-b border-heritage-gold/30;
+}
+
